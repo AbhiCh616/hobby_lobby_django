@@ -25,9 +25,17 @@ SECRET_KEY = '81z0=#v$$5eh()70kstgnlfsna5@t7f*8niwjnijl$!^0l%-$8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.43.161',
+'26.6.123.148',
+'127.0.0.1',
+'localhost']
 
 AUTH_USER_MODEL = 'accounts.User'
+
+AUTHENTICATION_BACKENDS = (
+   "django.contrib.auth.backends.ModelBackend",
+   "allauth.account.auth_backends.AuthenticationBackend"
+)
 
 # Application definition
 
@@ -41,6 +49,8 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'rest_framework.authtoken',
+
+    'django.contrib.sites',
 
     'accounts',
 ]
